@@ -1,0 +1,320 @@
+/* ============================================
+   SISTEMA DE CADASTRO DE CLIENTES — style.css
+   Tema: Corporativo refinado, limpo e moderno
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+/* ── Variáveis ── */
+:root {
+    --bg: #f0ede8;
+    --surface: #ffffff;
+    --border: #d4cfc8;
+    --accent: #1a3a2a;
+    --accent-mid: #2d6a4f;
+    --accent-lite: #74c69d;
+    --text: #1c1c1c;
+    --text-muted: #6b6560;
+    --danger: #c0392b;
+    --shadow: 0 2px 16px rgba(26, 58, 42, .10);
+    --radius: 10px;
+    --transition: .18s ease;
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+    /* Subtle grid texture */
+    background-image:
+        linear-gradient(rgba(26, 58, 42, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 58, 42, .04) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* ── Navigation Bar (index.html links) ── */
+body>a,
+body>a:visited {
+    display: inline-block;
+    margin: 28px 8px 0 0;
+    padding: 9px 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent);
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+body>a:first-of-type {
+    margin-left: 36px;
+}
+
+body>a:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(26, 58, 42, .18);
+}
+
+/* Home link at the bottom of each page */
+body>a[href="index.html"] {
+    display: inline-block;
+    margin: 28px 0 24px 36px;
+    padding: 8px 18px;
+    font-family: 'Syne', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: none;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+body>a[href="index.html"]:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ── Page Wrapper — tables float on a card ── */
+form {
+    display: block;
+    margin: 36px auto 0;
+    max-width: 860px;
+    padding: 0 20px;
+}
+
+/* ── Tables ── */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    margin: 0 auto;
+}
+
+/* Remove the raw HTML border="1" visual — we handle borders ourselves */
+table[border] {
+    border: 1.5px solid var(--border);
+}
+
+/* ── Table Header Row (title row) ── */
+tr:first-child td,
+tr:first-child th {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-align: center;
+    padding: 16px 20px;
+    text-transform: uppercase;
+}
+
+/* ── Data Rows ── */
+tr td,
+tr th {
+    padding: 11px 16px;
+    font-size: .92rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    vertical-align: middle;
+    color: var(--text);
+    font-weight: 400;
+    text-align: left;
+}
+
+tr:last-child td,
+tr:last-child th {
+    border-bottom: none;
+}
+
+td:last-child,
+th:last-child {
+    border-right: none;
+}
+
+/* Label cells */
+tr td:first-child {
+    font-family: 'Syne', sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: #f8f6f3;
+    width: 140px;
+    white-space: nowrap;
+}
+
+/* Report table — zebra stripe data rows */
+table+table tr:nth-child(even) td,
+table+table tr:nth-child(even) th {
+    background: #f8f6f3;
+}
+
+table+table tr:hover td,
+table+table tr:hover th {
+    background: #eaf5ef;
+    transition: background .12s;
+}
+
+/* Report header row with bgcolor="#9999FF" override */
+tr[bgcolor="#9999FF"] td,
+tr[bgcolor="#9999FF"] th {
+    background: var(--accent-mid) !important;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px 10px;
+}
+
+/* ── Inputs ── */
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    color: var(--text);
+    background: #faf9f7;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--accent-mid);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, .14);
+    background: #fff;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    accent-color: var(--accent-mid);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+/* ── Buttons ── */
+input[type="submit"] {
+    display: inline-block;
+    padding: 9px 26px;
+    font-family: 'Syne', sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(26, 58, 42, .22);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+input[type="submit"]:hover {
+    background: var(--accent-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(26, 58, 42, .28);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(26, 58, 42, .18);
+}
+
+/* Excluir button — danger variant */
+input[type="submit"][value="Excluir"] {
+    background: var(--danger);
+    box-shadow: 0 3px 10px rgba(192, 57, 43, .22);
+}
+
+input[type="submit"][value="Excluir"]:hover {
+    background: #a93226;
+    box-shadow: 0 6px 18px rgba(192, 57, 43, .3);
+}
+
+/* ── Page title accent bar ── */
+body::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-lite) 100%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    form {
+        padding: 0 10px;
+    }
+
+    tr td:first-child {
+        width: auto;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        font-size: .85rem;
+    }
+
+    body>a {
+        margin: 14px 6px 0 6px;
+        padding: 8px 13px;
+        font-size: .76rem;
+    }
+
+    body>a:first-of-type {
+        margin-left: 10px;
+    }
+
+    body>a[href="index.html"] {
+        margin-left: 10px;
+    }
+}
